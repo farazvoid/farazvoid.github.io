@@ -34,16 +34,15 @@
     }
 
     #logo {
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 2px solid white;
-      z-index: 10;
-    }
-
+  position: fixed;
+  top: 15px;
+  right: 15px;  /* Change this to align the logo to the right */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid white;
+  z-index: 10;
+}
     a, button, .card, .certification-card, .tool-card {
       transition: all 0.3s ease;
     }
