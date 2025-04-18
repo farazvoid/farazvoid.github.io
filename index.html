@@ -1,75 +1,191 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Buff | Ethical Hacker</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buff | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      background-color: #111;
+      color: #fff;
+    }
+
+    /* Background Video */
+    #bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      opacity: 0.15;
+    }
+
+    /* Profile Pic */
+    #profile-pic {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    #profile-pic img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #4caf50;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Sections */
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      transition: transform 1s ease, opacity 1s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    section.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #home {
+      font-size: 2.5rem;
+      color: #4caf50;
+    }
+
+    /* Contact Footer */
+    footer {
+      background-color: #1e1e1e;
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 2px solid #4caf50;
+    }
+
+    footer h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #4caf50;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    .contact-item img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+
+    .contact-item a {
+      color: #f1f1f1;
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+      color: #4caf50;
+    }
+
+    @media (max-width: 600px) {
+      #profile-pic img {
+        width: 50px;
+        height: 50px;
+      }
+
+      footer h2 {
+        font-size: 20px;
+      }
+
+      .contact-item a {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
-<body class="bg-black text-white font-mono">
-  <header class="p-6 shadow-md bg-gray-900">
-    <h1 class="text-4xl font-bold text-pink-500">Buff</h1>
-    <p class="text-gray-300 text-sm">Ethical Hacker | Cyber Security Enthusiast</p>
-  </header>
+<body>
+  <!-- Background Video -->
+  <video autoplay muted loop id="bg-video">
+    <source src="https://k.top4top.io/m_3395mjexn0.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
 
-  <nav class="p-4 bg-gray-800 flex gap-4 text-sm">
-    <a href="#about" class="hover:text-pink-500">About Me</a>
-    <a href="#skills" class="hover:text-pink-500">Skills</a>
-    <a href="#certs" class="hover:text-pink-500">Hall of Fame</a>
-    <a href="#tools" class="hover:text-pink-500">Tools by Me</a>
-    <a href="#contact" class="hover:text-pink-500">Contact</a>
-  </nav>
+  <!-- Profile Picture -->
+  <div id="profile-pic">
+    <img src="https://f.top4top.io/p_339502qn80.jpg" alt="Profile Picture">
+  </div>
 
-  <section id="about" class="p-8">
-    <h2 class="text-2xl mb-2 border-b border-pink-500 inline-block">👨‍💻 About Me</h2>
-    <p class="text-gray-400 mt-4">
-      I’m Buff, an ethical hacker passionate about cybersecurity, reverse engineering, and offensive security.
-      I believe in hacking with a purpose, protecting the digital world, and leveling up every day.
-    </p>
+  <!-- Sections -->
+  <section id="home">
+    <h1>Welcome to Buff's Universe</h1>
+  </section>
+  <section>
+    <h2>Power. Control. Respect.</h2>
+  </section>
+  <section>
+    <h2>Crafting the most powerful tools in cyberspace.</h2>
   </section>
 
-  <section id="skills" class="p-8 bg-gray-900">
-    <h2 class="text-2xl mb-2 border-b border-pink-500 inline-block">🛠️ Skills</h2>
-    <ul class="list-disc ml-6 mt-4 text-gray-300">
-      <li>Penetration Testing</li>
-      <li>Payload Engineering</li>
-      <li>Metasploit & Kali Linux</li>
-      <li>Python Automation</li>
-      <li>Network Exploitation</li>
-    </ul>
-  </section>
-
-  <section id="certs" class="p-8">
-    <h2 class="text-2xl mb-2 border-b border-pink-500 inline-block">🏆 Certifications Hall of Fame</h2>
-    <ul class="list-disc ml-6 mt-4 text-gray-300">
-      <li>CEH (Certified Ethical Hacker)</li>
-      <li>OSCP (coming soon...)</li>
-      <li>TryHackMe: Top 5% (Buff Hacker Tag)</li>
-    </ul>
-  </section>
-
-  <section id="tools" class="p-8 bg-gray-900">
-    <h2 class="text-2xl mb-2 border-b border-pink-500 inline-block">🧰 Tools by Me</h2>
-    <p class="text-gray-400 mt-4">
-      I build dark-themed GUI tools like <strong>Buff RAT</strong>, <strong>GC Spammer</strong>, and <strong>Insta Brute Claim Bot</strong>.
-      You can find my latest tools below:
-    </p>
-    <ul class="list-disc ml-6 mt-4 text-pink-400">
-      <li><a href="#" class="underline hover:text-white">Buff RAT Panel</a></li>
-      <li><a href="#" class="underline hover:text-white">Instagram GC Spammer</a></li>
-      <li><a href="#" class="underline hover:text-white">Username Claimer</a></li>
-    </ul>
-  </section>
-
-  <section id="contact" class="p-8">
-    <h2 class="text-2xl mb-2 border-b border-pink-500 inline-block">📞 Contact Me</h2>
-    <p class="text-gray-400 mt-4">
-      DM me on Instagram <a href="https://instagram.com/fwbuff" class="text-pink-400 underline">@fwbuff</a> or drop an email at <strong>buff@protonmail.com</strong>
-    </p>
-  </section>
-
-  <footer class="p-4 text-center text-gray-500 bg-gray-800 mt-8">
-    © 2025 Buff | All Rights Reserved.
+  <!-- Contact Footer -->
+  <footer>
+    <h2>Contact Me</h2>
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+      <a href="mailto:um6348591@gmail.com">um6348591@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
+      <a href="https://t.me/vcpwq" target="_blank">@vcpwq</a>
+    </div>
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram">
+      <a href="https://instagram.com/fwbuff" target="_blank">@fwbuff</a>
+    </div>
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord">
+      <a href="#">buffxfaraz</a>
+    </div>
   </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const sections = document.querySelectorAll('section');
+
+    const reveal = () => {
+      const trigger = window.innerHeight / 1.2;
+
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+
+        if (top < trigger) {
+          section.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+  </script>
 </body>
 </html>
