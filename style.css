@@ -1,271 +1,168 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Buff | Ethical Hacker</title>
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, sans-serif;
+}
 
-  <style>
-    /* Global Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Verdana, sans-serif;
-    }
+body {
+  background-color: #121212;
+  color: #f1f1f1;
+  line-height: 1.6;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
 
-    body {
-      background-color: #121212;
-      color: #f1f1f1;
-      line-height: 1.6;
-      font-size: 16px;
-      transition: all 0.3s ease;
-    }
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.3);
+}
 
-    #background-video {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(0.3);
-    }
+#logo {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid white;
+  z-index: 10;
+}
 
-    #logo {
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 2px solid white;
-      z-index: 10;
-    }
+/* Smooth Transitions on Hover/Focus */
+a, button, .card, .certification-card, .tool-card {
+  transition: all 0.3s ease;
+}
 
-    a, button, .card, .certification-card, .tool-card {
-      transition: all 0.3s ease;
-    }
+/* Navbar */
+nav {
+  background-color: #1f1f1f;
+  padding: 15px 30px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
-    nav {
-      background-color: #1f1f1f;
-      padding: 15px 30px;
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+nav a {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    nav a {
-      color: #f1f1f1;
-      text-decoration: none;
-      font-weight: bold;
-    }
+nav a:hover {
+  color: #4caf50;
+}
 
-    nav a:hover {
-      color: #4caf50;
-    }
+/* Header */
+header {
+  padding: 20px 30px;
+  background-color: rgba(30, 30, 30, 0.85);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 
-    header {
-      padding: 20px 30px;
-      background-color: rgba(30,30,30,0.85);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
+h1, h2, h3 {
+  color: #f1f1f1;
+  font-weight: 600;
+}
 
-    section {
-      padding: 40px 30px;
-    }
+p {
+  color: #b0b0b0;
+}
 
-    h1, h2, h3 {
-      color: #f1f1f1;
-      font-weight: 600;
-    }
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
-    p {
-      color: #b0b0b0;
-    }
+button:hover {
+  background-color: #45a049;
+}
 
-    button {
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
+/* Cards */
+.card, .certification-card, .tool-card {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+}
 
-    button:hover {
-      background-color: #45a049;
-    }
+.card:hover, .certification-card:hover, .tool-card:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
 
-    .card, .certification-card, .tool-card {
-      background-color: #1e1e1e;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-      margin: 20px;
-    }
+/* Section for Tools */
+#tools, #certifications {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-    .card:hover, .certification-card:hover, .tool-card:hover {
-      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-      transform: scale(1.05);
-    }
+.tool-card {
+  width: 30%;
+  text-align: center;
+}
 
-    #tools, #certifications {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.certification-card {
+  width: 22%;
+  text-align: center;
+}
 
-    .tool-card {
-      width: 30%;
-      text-align: center;
-    }
+.certification-card img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
 
-    .certification-card {
-      width: 22%;
-      text-align: center;
-    }
+/* IP Banner */
+#ip-banner {
+  background-color: #282828;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 20px;
+  color: #4caf50;
+  border-radius: 5px;
+  animation: blink 1s step-start infinite;
+}
 
-    .certification-card img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
 
-    #ip-banner {
-      background-color: #282828;
-      padding: 10px 20px;
-      text-align: center;
-      font-size: 20px;
-      color: #4caf50;
-      border-radius: 5px;
-      animation: blink 1s step-start infinite;
-    }
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .tool-card, .certification-card {
+    width: 48%;
+  }
 
-    @keyframes blink {
-      50% {
-        opacity: 0;
-      }
-    }
+  #tools {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
-    @media (max-width: 768px) {
-      .tool-card, .certification-card {
-        width: 48%;
-      }
+@media (max-width: 480px) {
+  .tool-card, .certification-card {
+    width: 90%;
+  }
 
-      #tools {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .tool-card, .certification-card {
-        width: 90%;
-      }
-
-      #ip-banner {
-        font-size: 18px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <video id="background-video" autoplay loop muted>
-    <source src="https://k.top4top.io/m_3395mjexn0.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <img id="logo" src="https://f.top4top.io/p_339502qn80.jpg" alt="Buff Logo" />
-
-  <header>
-    <h1 class="text-4xl font-bold text-pink-500">Buff</h1>
-    <p class="text-gray-300 text-sm">Ethical Hacker | Cyber Security Enthusiast</p>
-  </header>
-
-  <nav>
-    <a href="#about">About Me</a>
-    <a href="#skills">Skills</a>
-    <a href="#certs">Hall of Fame</a>
-    <a href="#tools">Tools by Me</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="about">
-    <h2>👨‍💻 About Me</h2>
-    <p>
-      I’m Buff, an ethical hacker passionate about cybersecurity, reverse engineering, and offensive security.
-      I believe in hacking with a purpose, protecting the digital world, and leveling up every day.
-    </p>
-  </section>
-
-  <section id="skills">
-    <h2>🛠️ Skills</h2>
-    <ul>
-      <li>Penetration Testing</li>
-      <li>Payload Engineering</li>
-      <li>Metasploit & Kali Linux</li>
-      <li>Python Automation</li>
-      <li>Network Exploitation</li>
-      <li>Good knowledge of System hacking</li>
-      <li>WiFi Hacking</li>
-      <li>SQL injection</li>
-      <li>All Web Penetration things</li>
-      <li>Matered tools like nmap,wise shark,sql map,burpsuite,dh hackbar,etc</li>
-    </ul>
-  </section>
-  
-  <section id="certs">
-    <h2>🏆 Certifications Hall of Fame</h2>
-    <div id="certifications">
-      <div class="certification-card">
-        <p>CEH (Not yet)</p>
-      </div>
-      <div class="certification-card">
-        <p>OSCP (coming soon...)</p>
-      </div>
-      <div class="certification-card">
-        <p>TryHackMe: Top 5% (Buff Hacker Tag)</p>
-      </div>
-       <div class="certification-card">
-        <p>Hall of thanks from inmakes.in to protect there site from SQL injection vulnerability</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="tools">
-    <h2>🧰 Tools by Me</h2>
-    <div class="tool-card">
-      <p><a href="#">Buff RAT Panel</a></p>
-    </div>
-    <div class="tool-card">
-      <p><a href="#">Phisher</a></p>
-    </div>
-    <div class="tool-card">
-      <p><a href="#">Username Claimer</a></p>
-      <p><a href="#">DDoS script</a></p>
-      <p><a href="#">Key logger</a></p>
-      <p><a href="#">Malawares</a></p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>📞 Contact Me</h2>
-    <p>
-      Email: <a href="mailto:um6348591@gmail.com">um6348591@gmail.com</a><br>
-      Telegram: <a href="https://t.me/vcpwq">@vcpwq</a><br>
-      Instagram: <a href="https://instagram.com/fwbuff">@fwbuff</a><br>
-      Discord: <strong>buffxfaraz</strong>
-    </p>
-  </section>
-
-  <footer style="padding:20px; text-align:center; background:#1f1f1f;">
-    © 2025 Buff | All Rights Reserved.
-  </footer>
-
-</body>
-</html>
+  #ip-banner {
+    font-size: 18px;
+  }
+}
