@@ -3,189 +3,297 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buff | Portfolio</title>
+  <title>Buff Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://f.top4top.io/p_339502qn80.jpg" type="image/png">
   <style>
+    /* Base styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
     }
 
     body, html {
       height: 100%;
+      width: 100%;
       overflow-x: hidden;
-      scroll-behavior: smooth;
-      background-color: #111;
-      color: #fff;
+      color: white;
+      background-color: black;
     }
 
-    /* Background Video */
-    #bg-video {
+    /* Background video */
+    #background-video {
       position: fixed;
       right: 0;
       bottom: 0;
       min-width: 100%;
       min-height: 100%;
-      z-index: -1;
       object-fit: cover;
-      opacity: 0.15;
+      z-index: -1;
+      filter: brightness(0.4);
     }
 
-    /* Profile Pic */
+    /* Profile picture in top left corner */
     #profile-pic {
       position: fixed;
       top: 20px;
-      right: 20px;
-      z-index: 10;
-    }
-
-    #profile-pic img {
+      left: 20px;
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      border: 2px solid #4caf50;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+      border: 2px solid white;
+      z-index: 10;
     }
 
     /* Sections */
-    section {
+    .section {
       height: 100vh;
+      padding: 100px 20px;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
       text-align: center;
-      padding: 20px;
       transition: transform 1s ease, opacity 1s ease;
       opacity: 0;
       transform: translateY(50px);
     }
 
-    section.active {
+    .section.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    #home {
-      font-size: 2.5rem;
-      color: #4caf50;
-    }
-
-    /* Contact Footer */
-    footer {
-      background-color: #1e1e1e;
-      padding: 40px 20px;
-      text-align: center;
-      border-top: 2px solid #4caf50;
-    }
-
-    footer h2 {
+    /* Heading styles */
+    h1 {
+      font-size: 3rem;
       margin-bottom: 20px;
-      font-size: 24px;
-      color: #4caf50;
+      color: #ffffff;
     }
 
-    .contact-item {
+    p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      color: #dddddd;
+    }
+
+    /* Contact section */
+    .contact-icons {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-icons a {
+      color: white;
+      text-decoration: none;
       display: flex;
       align-items: center;
-      justify-content: center;
-      margin: 10px 0;
+      gap: 10px;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease;
     }
 
-    .contact-item img {
+    .contact-icons a:hover {
+      transform: scale(1.1);
+    }
+
+    .contact-icons img {
       width: 24px;
       height: 24px;
-      margin-right: 10px;
+      filter: brightness(100);
     }
 
-    .contact-item a {
-      color: #f1f1f1;
-      text-decoration: none;
+    /* About me section styles */
+    .about-me {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 50px 20px;
+      border-radius: 10px;
     }
 
-    .contact-item a:hover {
-      text-decoration: underline;
-      color: #4caf50;
+    /* Skills section styles */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
     }
 
-    @media (max-width: 600px) {
-      #profile-pic img {
+    .skills div {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      width: 200px;
+      text-align: center;
+    }
+
+    .skills div h3 {
+      margin-bottom: 10px;
+    }
+
+    .skills div p {
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    /* Certificate & Tools sections */
+    .certificates, .tools {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .certificates div, .tools div {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      text-align: center;
+    }
+
+    .certificates img, .tools img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Hire me section */
+    .hire-me {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .hire-me button {
+      background-color: #ff5722;
+      padding: 15px 30px;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .hire-me button:hover {
+      background-color: #ff3d00;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+
+      #profile-pic {
         width: 50px;
         height: 50px;
-      }
-
-      footer h2 {
-        font-size: 20px;
-      }
-
-      .contact-item a {
-        font-size: 14px;
       }
     }
   </style>
 </head>
 <body>
+
   <!-- Background Video -->
-  <video autoplay muted loop id="bg-video">
+  <video id="background-video" autoplay loop muted>
     <source src="https://k.top4top.io/m_3395mjexn0.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
+    Your browser does not support the video tag.
   </video>
 
   <!-- Profile Picture -->
-  <div id="profile-pic">
-    <img src="https://f.top4top.io/p_339502qn80.jpg" alt="Profile Picture">
-  </div>
+  <img id="profile-pic" src="https://f.top4top.io/p_339502qn80.jpg" alt="Profile Picture">
 
   <!-- Sections -->
-  <section id="home">
-    <h1>Welcome to Buff's Universe</h1>
-  </section>
-  <section>
-    <h2>Power. Control. Respect.</h2>
-  </section>
-  <section>
-    <h2>Crafting the most powerful tools in cyberspace.</h2>
-  </section>
+  <div id="about-me" class="section visible">
+    <h1>About Me</h1>
+    <p>Hello! I'm a passionate cybersecurity professional with hands-on experience in ethical hacking, system security, and penetration testing. I love learning and applying my skills to real-world problems.</p>
+  </div>
 
-  <!-- Contact Footer -->
-  <footer>
-    <h2>Contact Me</h2>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-      <a href="mailto:um6348591@gmail.com">um6348591@gmail.com</a>
+  <div id="certificates" class="section">
+    <h1>Certificates</h1>
+    <div class="certificates">
+      <div><img src="your-certification-image.jpg" alt="Certificate"><p>Certificate Name</p></div>
+      <div><img src="your-certification-image.jpg" alt="Certificate"><p>Certificate Name</p></div>
+      <!-- Add more certificates here -->
     </div>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
-      <a href="https://t.me/vcpwq" target="_blank">@vcpwq</a>
-    </div>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram">
-      <a href="https://instagram.com/fwbuff" target="_blank">@fwbuff</a>
-    </div>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord">
-      <a href="#">buffxfaraz</a>
-    </div>
-  </footer>
+  </div>
 
-  <!-- Scroll Animation Script -->
+  <div id="hall-of-fame" class="section">
+    <h1>Hall of Fame</h1>
+    <p>Recognized for my contributions to ethical hacking and security. Featured in various cybersecurity blogs and forums.</p>
+  </div>
+
+  <div id="tools" class="section">
+    <h1>Tools I Have Built</h1>
+    <div class="tools">
+      <div><img src="tool-image.jpg" alt="Tool"><p>Tool Name</p></div>
+      <div><img src="tool-image.jpg" alt="Tool"><p>Tool Name</p></div>
+      <!-- Add more tools here -->
+    </div>
+  </div>
+
+  <div id="skills" class="section">
+    <h1>Skills</h1>
+    <div class="skills">
+      <div>
+        <h3>Python</h3>
+        <p>Expert in automation, scripting, and developing security tools.</p>
+      </div>
+      <div>
+        <h3>Pen Testing</h3>
+        <p>Skilled in penetration testing methodologies and tools.</p>
+      </div>
+      <!-- Add more skills here -->
+    </div>
+  </div>
+
+  <div id="contact" class="section">
+    <h1>Contact Me</h1>
+    <div class="contact-icons">
+      <a href="mailto:um6348591@gmail.com">
+        <img src="email-icon.png" alt="Email">um6348591@gmail.com
+      </a>
+      <a href="https://t.me/vcpwq">
+        <img src="telegram-icon.png" alt="Telegram">t.me/vcpwq
+      </a>
+      <a href="https://instagram.com/fwbuff">
+        <img src="instagram-icon.png" alt="Instagram">@fwbuff
+      </a>
+      <a href="https://discord.com/users/buffxfaraz">
+        <img src="discord-icon.png" alt="Discord">buffxfaraz
+      </a>
+    </div>
+  </div>
+
+  <div id="hire-me" class="hire-me section">
+    <h1>Hire Me</h1>
+    <p>If you're looking for a cybersecurity expert, feel free to reach out to me!</p>
+    <button>Contact Me</button>
+  </div>
+
   <script>
-    const sections = document.querySelectorAll('section');
-
-    const reveal = () => {
-      const trigger = window.innerHeight / 1.2;
-
+    // Smooth scroll for Apple-style effect
+    const sections = document.querySelectorAll('.section');
+    window.addEventListener('scroll', () => {
       sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-
-        if (top < trigger) {
-          section.classList.add('active');
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          section.classList.add('visible');
         }
       });
-    };
-
-    window.addEventListener('scroll', reveal);
-    window.addEventListener('load', reveal);
+    });
   </script>
+
 </body>
 </html>
