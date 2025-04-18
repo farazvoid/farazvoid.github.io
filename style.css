@@ -1,168 +1,153 @@
-/* Reset and base styles */
+/* Global Styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-  scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-body, html {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-  color: white;
-  background-color: black;
+body {
+    background-color: #121212;
+    color: #f1f1f1;
+    line-height: 1.6;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
-/* Background video */
-#background-video {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  filter: brightness(0.4);
+/* Smooth Transitions on Hover/Focus */
+a, button, .card, .certification-card, .tool-card {
+    transition: all 0.3s ease;
 }
 
-/* Profile image in corner */
-#profile-pic {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 2px solid white;
-  z-index: 10;
+/* Navbar */
+nav {
+    background-color: #1f1f1f;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Main content sections */
-.section,
-section {
-  height: 100vh;
-  padding: 100px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  transition: transform 1s ease, opacity 1s ease;
-  opacity: 0;
-  transform: translateY(50px);
+nav a {
+    color: #f1f1f1;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
 }
 
-.section.visible,
-section.active {
-  opacity: 1;
-  transform: translateY(0);
+nav a:hover {
+    color: #4caf50;
 }
 
-/* Heading styles */
-h1, h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #4caf50;
+/* Buttons */
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Card Styles (Tools/Certifications) */
+.card, .certification-card, .tool-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card:hover, .certification-card:hover, .tool-card:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* Title and Descriptions */
+h1, h2, h3 {
+    color: #f1f1f1;
+    font-weight: 600;
 }
 
 p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  color: #dddddd;
-  margin-bottom: 20px;
+    color: #b0b0b0;
 }
 
-/* List styling */
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+/* Section for Tools */
+#tools {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 50px 0;
 }
 
-ul li {
-  font-size: 1.1rem;
-  margin: 10px 0;
-  color: #e0e0e0;
-  position: relative;
-  padding-left: 24px;
+.tool-card {
+    width: 30%;
+    margin: 10px;
+    text-align: center;
 }
 
-ul li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  color: #4caf50;
-  font-size: 1rem;
+/* Section for Certifications */
+#certifications {
+    padding: 50px 0;
+    background-color: #232323;
 }
 
-/* Contact section */
-.contact-icons,
-.contact-item {
-  margin-top: 30px;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
+.certification-card {
+    width: 22%;
+    margin: 20px;
+    text-align: center;
 }
 
-.contact-icons a,
-.contact-item a {
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.1rem;
-  transition: transform 0.3s ease;
+.certification-card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
-.contact-icons a:hover,
-.contact-item a:hover {
-  transform: scale(1.1);
-  color: #4caf50;
+/* IP Banner */
+#ip-banner {
+    background-color: #282828;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #4caf50;
+    border-radius: 5px;
+    animation: blink 1s step-start infinite;
 }
 
-/* Contact icons */
-.contact-icons img,
-.contact-item img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(100);
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
 
-/* Footer styles */
-footer {
-  background-color: #1e1e1e;
-  padding: 40px 20px;
-  text-align: center;
-  border-top: 2px solid #4caf50;
-}
-
-footer h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #4caf50;
-}
-
-/* Responsive tweaks */
+/* Mobile-First Design */
 @media (max-width: 768px) {
-  h1, h2 {
-    font-size: 2rem;
-  }
+    .tool-card, .certification-card {
+        width: 48%;
+    }
 
-  p {
-    font-size: 1rem;
-    padding: 0 10px;
-  }
+    #tools {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
-  #profile-pic {
-    width: 50px;
-    height: 50px;
-  }
+@media (max-width: 480px) {
+    .tool-card, .certification-card {
+        width: 90%;
+    }
 
-  ul li {
-    font-size: 1rem;
-  }
+    #ip-banner {
+        font-size: 18px;
+    }
 }
