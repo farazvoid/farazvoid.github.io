@@ -151,4 +151,84 @@ p {
         font-size: 18px;
     }
 }
+/* Background Video */
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    opacity: 0.15;
+}
+
+/* Profile Picture in Corner */
+#profile-pic {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#profile-pic img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #4caf50;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Contact Footer */
+#contact {
+    background-color: #1e1e1e;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 2px solid #4caf50;
+}
+
+#contact h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #4caf50;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.contact-item img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.contact-item a {
+    color: #f1f1f1;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+    color: #4caf50;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    #profile-pic img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #contact h2 {
+        font-size: 20px;
+    }
+
+    .contact-item a {
+        font-size: 14px;
+    }
+}
 
