@@ -48,7 +48,7 @@
       z-index: 10;
     }
 
-    /* Section styles */
+    /* Sections */
     .section {
       height: 100vh;
       padding: 100px 20px;
@@ -57,9 +57,9 @@
       justify-content: center;
       flex-direction: column;
       text-align: center;
+      transition: transform 1s ease, opacity 1s ease;
       opacity: 0;
       transform: translateY(50px);
-      transition: opacity 1s ease, transform 1s ease;
     }
 
     .section.visible {
@@ -71,6 +71,7 @@
     h1 {
       font-size: 3rem;
       margin-bottom: 20px;
+      color: #ffffff;
     }
 
     p {
@@ -79,7 +80,7 @@
       color: #dddddd;
     }
 
-    /* Contact section styles */
+    /* Contact section */
     .contact-icons {
       margin-top: 30px;
       display: flex;
@@ -105,6 +106,7 @@
     .contact-icons img {
       width: 24px;
       height: 24px;
+      filter: brightness(100);
     }
 
     /* About me section styles */
@@ -162,7 +164,7 @@
       border-radius: 10px;
     }
 
-    /* Hire me section styles */
+    /* Hire me section */
     .hire-me {
       margin-top: 50px;
       text-align: center;
@@ -212,13 +214,12 @@
   <!-- Profile Picture -->
   <img id="profile-pic" src="https://f.top4top.io/p_339502qn80.jpg" alt="Profile Picture">
 
-  <!-- About Me Section -->
+  <!-- Sections -->
   <div id="about-me" class="section visible">
     <h1>About Me</h1>
     <p>Hello! I'm a passionate cybersecurity professional with hands-on experience in ethical hacking, system security, and penetration testing. I love learning and applying my skills to real-world problems.</p>
   </div>
 
-  <!-- Certificates Section -->
   <div id="certificates" class="section">
     <h1>Certificates</h1>
     <div class="certificates">
@@ -228,13 +229,11 @@
     </div>
   </div>
 
-  <!-- Hall of Fame Section -->
   <div id="hall-of-fame" class="section">
     <h1>Hall of Fame</h1>
     <p>Recognized for my contributions to ethical hacking and security. Featured in various cybersecurity blogs and forums.</p>
   </div>
 
-  <!-- Tools I Have Built Section -->
   <div id="tools" class="section">
     <h1>Tools I Have Built</h1>
     <div class="tools">
@@ -244,7 +243,6 @@
     </div>
   </div>
 
-  <!-- Skills Section -->
   <div id="skills" class="section">
     <h1>Skills</h1>
     <div class="skills">
@@ -260,7 +258,6 @@
     </div>
   </div>
 
-  <!-- Contact Section -->
   <div id="contact" class="section">
     <h1>Contact Me</h1>
     <div class="contact-icons">
@@ -279,7 +276,6 @@
     </div>
   </div>
 
-  <!-- Hire Me Section -->
   <div id="hire-me" class="hire-me section">
     <h1>Hire Me</h1>
     <p>If you're looking for a cybersecurity expert, feel free to reach out to me!</p>
