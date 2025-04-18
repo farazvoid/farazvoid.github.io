@@ -1,191 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buff | Portfolio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
 
-    body, html {
-      height: 100%;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      background-color: #111;
-      color: #fff;
-    }
+body, html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  color: white;
+  background-color: black;
+}
 
-    /* Background Video */
-    #bg-video {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -1;
-      object-fit: cover;
-      opacity: 0.15;
-    }
+/* Background video */
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.4);
+}
 
-    /* Profile Pic */
-    #profile-pic {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 10;
-    }
+/* Profile image in corner */
+#profile-pic {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid white;
+  z-index: 10;
+}
 
-    #profile-pic img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 2px solid #4caf50;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-    }
+/* Main content scroll area */
+.section {
+  height: 100vh;
+  padding: 100px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 1s ease, opacity 1s ease;
+  opacity: 0;
+  transform: translateY(50px);
+}
 
-    /* Sections */
-    section {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      transition: transform 1s ease, opacity 1s ease;
-      opacity: 0;
-      transform: translateY(50px);
-    }
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    section.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* Heading styles */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
 
-    #home {
-      font-size: 2.5rem;
-      color: #4caf50;
-    }
+p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  color: #dddddd;
+}
 
-    /* Contact Footer */
-    footer {
-      background-color: #1e1e1e;
-      padding: 40px 20px;
-      text-align: center;
-      border-top: 2px solid #4caf50;
-    }
+/* Contact section */
+.contact-icons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-    footer h2 {
-      margin-bottom: 20px;
-      font-size: 24px;
-      color: #4caf50;
-    }
+.contact-icons a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 10px 0;
-    }
+.contact-icons a:hover {
+  transform: scale(1.1);
+}
 
-    .contact-item img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
-    }
+/* Icons (like Apple style) */
+.contact-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(100);
+}
 
-    .contact-item a {
-      color: #f1f1f1;
-      text-decoration: none;
-    }
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
 
-    .contact-item a:hover {
-      text-decoration: underline;
-      color: #4caf50;
-    }
+  p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
 
-    @media (max-width: 600px) {
-      #profile-pic img {
-        width: 50px;
-        height: 50px;
-      }
-
-      footer h2 {
-        font-size: 20px;
-      }
-
-      .contact-item a {
-        font-size: 14px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Background Video -->
-  <video autoplay muted loop id="bg-video">
-    <source src="https://k.top4top.io/m_3395mjexn0.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-
-  <!-- Profile Picture -->
-  <div id="profile-pic">
-    <img src="https://f.top4top.io/p_339502qn80.jpg" alt="Profile Picture">
-  </div>
-
-  <!-- Sections -->
-  <section id="home">
-    <h1>Welcome to Buff's Universe</h1>
-  </section>
-  <section>
-    <h2>Power. Control. Respect.</h2>
-  </section>
-  <section>
-    <h2>Crafting the most powerful tools in cyberspace.</h2>
-  </section>
-
-  <!-- Contact Footer -->
-  <footer>
-    <h2>Contact Me</h2>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-      <a href="mailto:um6348591@gmail.com">um6348591@gmail.com</a>
-    </div>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
-      <a href="https://t.me/vcpwq" target="_blank">@vcpwq</a>
-    </div>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram">
-      <a href="https://instagram.com/fwbuff" target="_blank">@fwbuff</a>
-    </div>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord">
-      <a href="#">buffxfaraz</a>
-    </div>
-  </footer>
-
-  <!-- Scroll Animation Script -->
-  <script>
-    const sections = document.querySelectorAll('section');
-
-    const reveal = () => {
-      const trigger = window.innerHeight / 1.2;
-
-      sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-
-        if (top < trigger) {
-          section.classList.add('active');
-        }
-      });
-    };
-
-    window.addEventListener('scroll', reveal);
-    window.addEventListener('load', reveal);
-  </script>
-</body>
-</html>
+  #profile-pic {
+    width: 50px;
+    height: 50px;
+  }
+}
